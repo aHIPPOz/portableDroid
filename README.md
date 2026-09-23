@@ -21,14 +21,3 @@ python3 tools/android_api_indexer/generate_api_index.py \
 ```
 
 Le dernier programme n'invente aucune API : il lit le JAR fourni, émet une liste de classes publique et un manifeste dont le hachage identifie précisément l'entrée. Cette liste devient le backlog obligatoire de générateurs, implémentations et tests.
-
-## Tranche PWA exécutable
-
-Le module `runtime` est une première tranche réellement compilable, non une liste de stubs. Il contient une `Activity`, `Bundle`, `Log`, `Color`, `View`, `TextView` et `Button` dans les packages `android.*`; l'application de démonstration les importe directement et Compose Web les rend dans le navigateur. Le résultat PWA contient un manifeste et un service worker.
-
-```bash
-gradle :runtime:assemblePwa
-# ouvrir runtime/build/pwa/index.html via un serveur HTTP local
-```
-
-Cette tranche ne revendique pas encore la couverture totale du framework Android. Les packages et comportements non implémentés restent explicitement hors de la condition de stabilité définie par le contrat.
