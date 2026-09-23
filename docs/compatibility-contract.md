@@ -31,11 +31,3 @@ Une API ne peut pas être marquée stable lorsqu'elle est `blocked`. Les entrée
 ## Décision importante
 
 Aucun réécriveur d'imports n'est utilisé : remplacer `import android.*` par un autre package violerait le contrat. Les premiers livrables sont donc l'index reproductible, le contrôle de contrat, puis le front-end de résolution de symboles ; ils empêchent de confondre une couche de stubs avec une implémentation fonctionnelle.
-
-## Tranche exécutable actuelle
-
-Le module `:runtime` fournit désormais un exécutable Kotlin/JS avec des classes réellement placées dans `android.app`, `android.os`, `android.util`, `android.graphics`, `android.view` et `android.widget`. La fixture `MainActivity` n'importe que `android.*`, exécute le cycle `Activity.onCreate`, installe son contenu et le rendu s'effectue avec Compose Web. `assemblePwa` rassemble le bundle, le manifeste et le service worker.
-
-Les targets `linuxX64` et `linuxArm64` existent également comme frontières de compilation pour le runtime. Un hôte Compose Desktop utilisable impose une cible JVM Linux (Compose Desktop n'est pas un backend Kotlin/Native) ; l'hôte native/DBus demeure donc un livrable distinct, et n'est pas annoncé comme fonctionnel tant qu'il ne produit pas une application exécutable testée.
-
-La tranche PWA implémente maintenant un premier adaptateur de services : `Context.getSharedPreferences` utilise `localStorage`, et `Context.startActivity(Intent(ACTION_VIEW, uri))` délègue la navigation à l'URI du navigateur. Les autres intents échouent explicitement tant qu'un gestionnaire portable n'est pas enregistré : ils ne sont donc pas comptés comme portés.

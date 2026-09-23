@@ -1,7 +1,6 @@
 package com.example.complex
 
 import android.app.Activity
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -26,12 +25,11 @@ class MainActivity : Activity() {
 
 @Composable
 private fun CounterScreen() {
-    val preferences = Context().getSharedPreferences("counter", Context.MODE_PRIVATE)
-    var count by mutableStateOf(preferences.getInt("value", 0))
+    var count by mutableStateOf(0)
     Div(attrs = { classes("screen") }) {
         TextView("portableDroid", Color.rgb(25, 118, 210))
         TextView("Une Activity Android avec imports android.* rendue par Compose Web.")
-        Button("Compteur : $count") { count++; preferences.edit().putInt("value", count).apply() }
+        Button("Compteur : $count") { count++ }
     }
 }
 
