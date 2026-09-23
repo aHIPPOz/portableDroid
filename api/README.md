@@ -1,0 +1,1 @@
+Les fichiers `android-<niveau>.json` sont générés à partir du `android.jar` correspondant et doivent être committés lorsqu'une version d'API devient une cible de compatibilité. Ne les éditez pas à la main.
