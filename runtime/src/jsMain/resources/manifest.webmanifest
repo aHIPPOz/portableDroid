@@ -1,0 +1,8 @@
+{
+  "name": "portableDroid Android compatibility demo",
+  "short_name": "portableDroid",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1976d2"
+}
