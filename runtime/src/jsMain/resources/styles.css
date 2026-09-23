@@ -1,0 +1,3 @@
+:root { font-family: Roboto, Arial, sans-serif; color: #1b1b1f; background: #f7f9fc; }
+body { margin: 0; }
+.screen { box-sizing: border-box; display: grid; gap: 16px; max-width: 640px; margin: 10vh auto; padding: 32px; background: white; border-radius: 16px; box-shadow: 0 4px 24px #0002; }
